@@ -17,7 +17,8 @@ namespace AssignmentT2.DataAccess.Repository
         {
             _db = db;
         }
-        
+
+    
 
         public void Update(Category obj)
         {

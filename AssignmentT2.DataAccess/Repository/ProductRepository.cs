@@ -21,7 +21,7 @@ namespace AssignmentT2.DataAccess.Repository
 
         public void Update(Product obj)
         {
-            _db.Products.Update(obj);
+            _db.Services.Update(obj);
         }
     }
 }

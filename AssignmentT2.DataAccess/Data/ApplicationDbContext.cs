@@ -11,7 +11,7 @@ namespace AssignmentT2.DataAccess.Data
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Services { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

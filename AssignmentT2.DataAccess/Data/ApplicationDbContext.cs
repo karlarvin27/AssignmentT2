@@ -11,6 +11,7 @@ namespace AssignmentT2.DataAccess.Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,6 +19,42 @@ namespace AssignmentT2.DataAccess.Data
                 new Category { Id = 1, Name = "Repair", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "Maintenance", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "Add Products", DisplayOrder = 3 }
+                );
+            modelBuilder.Entity<Product>().HasData(
+                new Product 
+                { 
+                Id = 1,
+                Services = "PMS",
+                Description = "Maintenance",
+                ListPrice = 50,
+                Price = 50,
+                Price3 = 45,
+                Price5 = 40
+
+                },
+                new Product
+                {
+                    Id = 2,
+                    Services = "Tire Services",
+                    Description = "Tire Services",
+                    ListPrice = 100,
+                    Price = 100,
+                    Price3 = 90,
+                    Price5 = 80
+
+                },
+                new Product
+                {
+                    Id = 3,
+                    Services = "Auto Repair",
+                    Description = "Repairs for cars",
+                    ListPrice = 1000,
+                    Price = 1000,
+                    Price3 = 980,
+                    Price5 = 940
+                }
+
+
                 );
         }
     }

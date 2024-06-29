@@ -30,7 +30,6 @@ namespace AssignmentT2.DataAccess.Repository
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
             return query.FirstOrDefault();
-
         }
 
         public IEnumerable<T> GetAll()

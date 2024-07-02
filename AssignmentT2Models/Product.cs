@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssignmentT2.Models
 {
@@ -35,5 +36,9 @@ namespace AssignmentT2.Models
         [Display(Name = "Price for 5 and above services")]
         [Range(1, 1000)]
         public double Price5 { get; set; }
+
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
     }
 }

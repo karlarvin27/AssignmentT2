@@ -39,7 +39,7 @@ namespace AssignmentT2.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -92,7 +92,7 @@ namespace AssignmentT2.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
 
                     b.HasData(
                         new

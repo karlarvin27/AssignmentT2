@@ -29,32 +29,29 @@ namespace AssignmentT2.DataAccess.Data
                 ListPrice = 50,
                 Price = 50,
                 Price3 = 45,
-                Price5 = 40,
-                CategoryId = 1
+                Price5 = 40
 
                 },
                 new Product
                 {
-                Id = 2,
-                Services = "Tire Services",
-                Description = "Tire Services",
-                ListPrice = 100,
-                Price = 100,
-                Price3 = 90,
-                Price5 = 80,
-                CategoryId = 2
+                    Id = 2,
+                    Services = "Tire Services",
+                    Description = "Tire Services",
+                    ListPrice = 100,
+                    Price = 100,
+                    Price3 = 90,
+                    Price5 = 80
 
                 },
                 new Product
                 {
-                Id = 3,
-                Services = "Auto Repair",
-                Description = "Repairs for cars",
-                ListPrice = 1000,
-                Price = 1000,
-                Price3 = 980,
-                Price5 = 940,
-                CategoryId = 3
+                    Id = 3,
+                    Services = "Auto Repair",
+                    Description = "Repairs for cars",
+                    ListPrice = 1000,
+                    Price = 1000,
+                    Price3 = 980,
+                    Price5 = 940
                 }
 
 

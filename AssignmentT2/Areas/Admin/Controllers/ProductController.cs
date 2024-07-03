@@ -3,6 +3,7 @@ using AssignmentT2.DataAccess.Repository;
 using AssignmentT2.DataAccess.Repository.IRepository;
 using AssignmentT2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AssignmentT2.Areas.Admin.Controllers
 {
@@ -18,18 +19,24 @@ namespace AssignmentT2.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Product> objProductList = _unitOfWork.Product.GetAll().ToList();
+            
             return View(objProductList);
         }
         public IActionResult Create()
         {
+            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+            ViewBag.Category = CategoryList;
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Product obj)
         {
-
-         
             if (ModelState.IsValid)
             {
                 _unitOfWork.Product.Add(obj);

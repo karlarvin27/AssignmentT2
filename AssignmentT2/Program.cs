@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AssignmentT2.DataAccess.Data.ApplicationDbContext>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
+ApplyMigrations(app);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -33,3 +35,21 @@ app.MapControllerRoute(
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void ApplyMigrations(IHost app)
+{
+    using var scope = app.Services.CreateScope();
+
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<AssignmentT2.DataAccess.Data.ApplicationDbContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An occured while migrating the database.");
+    }
+}

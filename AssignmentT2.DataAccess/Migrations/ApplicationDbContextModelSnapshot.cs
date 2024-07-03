@@ -138,12 +138,17 @@ namespace AssignmentT2.DataAccess.Migrations
             modelBuilder.Entity("AssignmentT2.Models.Product", b =>
                 {
                     b.HasOne("AssignmentT2.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("AssignmentT2.Models.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

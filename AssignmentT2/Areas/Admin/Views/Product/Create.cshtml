@@ -37,7 +37,14 @@
             <input asp-for="Price5" class="form-control" />
             <span asp-validation-for="Price5" class="text-danger"></span>
         </div>
-        
+        <div class="mb-3 row p-1">
+            <Select asp-for="CategoryId" asp-items="ViewBag.Category" class="form-select">
+                <option disabled selected>--Select Category--</option>
+            </Select>
+            <input asp-for="CategoryId" class="form-control" hidden />
+            <input asp-for="Category" class="form-control" hidden />
+            <span asp-validation-for="CategoryId" class="text-danger" hidden></span>
+        </div>
         <div class="row">
             <div class="col-6 col-md-3">
                <button type="submit" class="btn btn-primary form-control">Create</button>

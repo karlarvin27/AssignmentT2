@@ -44,6 +44,7 @@ namespace AssignmentT2.DataAccess.Data
                 Price5 = 80,
                 CategoryId= 2
 
+
                 },
                 new Product
                 {
@@ -54,7 +55,7 @@ namespace AssignmentT2.DataAccess.Data
                 Price = 1000,
                 Price3 = 980,
                 Price5 = 940,
-                CategoryId = 3
+                CategoryId = 3,               
                 }
 
 

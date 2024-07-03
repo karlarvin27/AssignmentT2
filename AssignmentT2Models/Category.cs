@@ -15,5 +15,6 @@ namespace AssignmentT2.Models
         [DisplayName("Display Order")]
         [Range(1, 100)]
         public int DisplayOrder { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using AssignmentT2.DataAccess.Repository;
 using AssignmentT2.DataAccess.Repository.IRepository;
 using AssignmentT2.Models;
+using AssignmentT2.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -24,13 +25,16 @@ namespace AssignmentT2.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category
-                .GetAll().Select(u => new SelectListItem
+           
+                ProductVM productVM = new()
                 {
+                    CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                    { 
                     Text = u.Name,
                     Value = u.Id.ToString()
-                });
-            ViewBag.Category = CategoryList;
+                    }),      
+                Product = new Product()
+                };
             return View();
         }
 

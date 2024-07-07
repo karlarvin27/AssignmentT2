@@ -23,7 +23,7 @@ namespace AssignmentT2.Areas.Admin.Controllers
             
             return View(objProductList);
         }
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
            
                 ProductVM productVM = new()
@@ -35,19 +35,31 @@ namespace AssignmentT2.Areas.Admin.Controllers
                     }),      
                 Product = new Product()
                 };
-            return View(productVM);
+            if (id == null || id == 0 )
+            {
+                return View(productVM);
+            }
+
+            else
+            {
+                productVM.Product = _unitOfWork.Product.Get(u => u.Id == id);
+                return View(productVM);
+            }
+            
         }
 
         [HttpPost]
-        public IActionResult Create(ProductVM obj)
+        public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Product.Add(obj.Product);
+                _unitOfWork.Product.Add(productVM.Product);
                 _unitOfWork.Save();
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");
             }
+
+            productVM.CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem)
             return View();
         }
 

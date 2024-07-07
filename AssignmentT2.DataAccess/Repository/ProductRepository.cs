@@ -1,6 +1,7 @@
 ﻿using AssignmentT2.DataAccess.Data;
 using AssignmentT2.DataAccess.Repository.IRepository;
 using AssignmentT2.Models;
+using AssignmentT2.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

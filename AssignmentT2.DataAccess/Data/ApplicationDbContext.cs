@@ -30,7 +30,8 @@ namespace AssignmentT2.DataAccess.Data
                 Price = 50,
                 Price3 = 45,
                 Price5 = 40,
-                CategoryId = 1
+                CategoryId = 1,
+                ImageUrl=""
 
                 },
                 new Product
@@ -42,7 +43,8 @@ namespace AssignmentT2.DataAccess.Data
                 Price = 100,
                 Price3 = 90,
                 Price5 = 80,
-                CategoryId= 2
+                CategoryId= 2,
+                ImageUrl = ""
 
 
                 },
@@ -55,7 +57,8 @@ namespace AssignmentT2.DataAccess.Data
                 Price = 1000,
                 Price3 = 980,
                 Price5 = 940,
-                CategoryId = 3,               
+                CategoryId = 3,
+                ImageUrl = ""
                 }
 
 

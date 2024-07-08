@@ -1,25 +1,13 @@
 ﻿@model AssignmentT2.Models.ViewModels.ProductVM
 
-<form method="post" class="row" enctype="multipart/form-data">
-<input asp-for ="Product.Id" hidden/>
-@* <input asp-for="Product.ImageUrl" hidden />
-<div class="row">
-    <div class="col-10">
-
-    </div>
-    <div class="col-2">
-        <img src="@Model.Product.ImageUrl" width="100%"
-        style="border-radius:5px; border 1px solid #bbb9b9"/>
-    </div>
-     *@
-</div>
+<form method="post" class="row enctype="multipart/form-data">
+    <input asp-for="Product.Id" hidden/>
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">@(Model.Product.Id!=0?"Update":"Create")Product</h2>
+            <h2 class="text-primary"> @(Model.Product.Id!=0?"Update":"Create") Product</h2>
             <hr/>
         </div>
-      
-      @*   <div asp-validation-summary="ModelOnly"></div> *@
+        <div asp-validation-summary="ModelOnly"></div>
         <div class="mb-3 row p-1">
             <label asp-for="Product.Services" class="p-0"></label>
             <input asp-for="Product.Services" class="form-control" />
@@ -51,33 +39,29 @@
             <span asp-validation-for="Product.Price5" class="text-danger"></span>
         </div>
         <div class="mb-3 row p-1">
+            <label asp-for="Product.CategoryId" class="p-0"></label>
             <Select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
                 <option disabled selected>--Select Category--</option>
             </Select>
             <input asp-for="Product.CategoryId" class="form-control" hidden />
             <span asp-validation-for="Product.CategoryId" class="text-danger" hidden></span>
         </div>
-        <div class="mb-3 row p-1">
-            <Select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
-                <option disabled selected>--Select Category--</option>
-            </Select>
-            <input asp-for="Product.CategoryId" class="form-control" hidden />
-            <span asp-validation-for="Product.CategoryId" class="text-danger" hidden></span>
+        <div class="form-floating py-2 col-12">
+            <label asp-for="Product.ImageUrl" class="p-0"></label>
+                <input type="file" class="form-control border-0 shadow"/>
+                 <input asp-for="Product.ImageUrl" class="form-control" hidden />
+           
         </div>
-       @*  <div class="form-floating py-2 col-12">
-            <input type="file" name="files" class="form-control border-0 shadow" multiple />
-            <label asp-for="Product.ProductImages" class="ms-2"></label>
-        </div> *@
         <div class="row">
             <div class="col-6 col-md-3">
-                @if (Model.Product.Id != 0)
+                @if (Model.Product.Id !=0)
                 {
                     <button type="submit" class="btn btn-primary form-control">Update</button>
                 }
-                else
-                {
+                else{
                     <button type="submit" class="btn btn-primary form-control">Create</button>
                 }
+               
             </div>
             <div class="col-6 col-md-3">
                 <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">

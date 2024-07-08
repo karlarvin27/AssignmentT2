@@ -36,4 +36,8 @@
     <ProjectReference Include="..\AssignmentT2Models\AssignmentT2.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\product\" />
+  </ItemGroup>
+
 </Project>

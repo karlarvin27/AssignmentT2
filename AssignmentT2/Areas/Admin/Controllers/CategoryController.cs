@@ -2,11 +2,14 @@
 using AssignmentT2.DataAccess.Repository;
 using AssignmentT2.DataAccess.Repository.IRepository;
 using AssignmentT2.Models;
+using AssignmentT2.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssignmentT2.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         

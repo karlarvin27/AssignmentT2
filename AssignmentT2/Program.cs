@@ -2,11 +2,18 @@
 using AssignmentT2.DataAccess.Repository;
 using AssignmentT2.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>  //newly added
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.MaxDepth = 64; // You can adjust the depth limit if needed
+    });
+
 builder.Services.AddDbContext<AssignmentT2.DataAccess.Data.ApplicationDbContext>(options=> 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

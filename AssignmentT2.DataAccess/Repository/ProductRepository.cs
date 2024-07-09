@@ -22,7 +22,22 @@ namespace AssignmentT2.DataAccess.Repository
 
         public void Update(Product obj)
         {
-            _db.Services.Update(obj);
+            var objFromDb = _db.Services.FirstOrDefault(u=> u.Id == obj.Id);
+            if(objFromDb != null)
+            {
+                objFromDb.Services = obj.Services;
+                objFromDb.Description = obj.Description;
+                objFromDb.Price = obj.Price;
+                objFromDb.ListPrice = obj.ListPrice;
+                objFromDb.Price5 = obj.Price5;
+                objFromDb.Price3 = obj.Price3;
+                objFromDb.CategoryId = obj.CategoryId;
+                if (obj.ImageUrl != null)
+                {
+                    objFromDb.ImageUrl = obj.ImageUrl;
+                }
+
+            }
         }
     }
 }
